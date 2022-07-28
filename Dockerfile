@@ -50,7 +50,7 @@ RUN set -e -x ;\
     echo "## Generate standard configuration" && \
     \
     ./emsdk activate ${EMSCRIPTEN_VERSION} --embedded && \
-    ./emsdk construct_env > /dev/null && \
+    ./emsdk construct_env > ${EMSDK}/emsdk_set_env.sh && \
     cat ${EMSDK}/emsdk_set_env.sh && \
     \
     # remove wrongly created entry with EM_CACHE, variable will be picked up from ENV
