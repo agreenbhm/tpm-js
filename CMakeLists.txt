@@ -30,6 +30,8 @@ if(DEFINED ENV{EMSCRIPTEN})
         "-s DISABLE_EXCEPTION_CATCHING=1"
         "-s ALLOW_MEMORY_GROWTH=1"
         "-s WASM=1"
+        "-s NODERAWFS=true"
+        "-s FORCE_FILESYSTEM=true"
        )
     string (REPLACE ";" " " EMSCRIPTEN_FLAGS "${EMSCRIPTEN_FLAGS}")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EMSCRIPTEN_FLAGS}")
@@ -44,6 +46,8 @@ if(DEFINED ENV{EMSCRIPTEN})
         "-s DISABLE_EXCEPTION_CATCHING=1"
         "-s ALLOW_MEMORY_GROWTH=1"
         "-s WASM=1"
+        "-s NODERAWFS=true"
+        "-s FORCE_FILESYSTEM=true"
        )
     string (REPLACE ";" " " EMSCRIPTEN_FLAGS "${EMSCRIPTEN_FLAGS}")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EMSCRIPTEN_FLAGS}")
