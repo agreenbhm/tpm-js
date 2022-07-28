@@ -4,7 +4,7 @@ ARG user
 ARG group
 
 ARG EMSCRIPTEN_VERSION=1.39.15
-ARG EMSDK_CHANGESET=master
+ARG EMSDK_CHANGESET=main
 
 ENV EMSDK /emsdk
 ENV EM_DATA ${EMSDK}/.data
@@ -28,6 +28,7 @@ RUN set -e -x ;\
         cmake \
         libunwind-dev \
         golang \
+        bash-completion \
         && \
     apt-get clean && \
     pip2 install jinja2 && \
@@ -36,8 +37,7 @@ RUN set -e -x ;\
 # Get EMSDK.
 RUN set -e -x ;\
     git clone https://github.com/emscripten-core/emsdk.git ${EMSDK} && \
-    cd ${EMSDK} && git reset --hard ${EMSDK_CHANGESET} && \
-    ./emsdk.py update-tags
+    cd ${EMSDK} && git reset --hard ${EMSDK_CHANGESET}
 
 # Install Emscripten.
 RUN set -e -x ;\
